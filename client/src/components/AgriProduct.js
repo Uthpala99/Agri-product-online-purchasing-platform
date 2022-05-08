@@ -1,6 +1,7 @@
 import React , {useState} from 'react';
 import {Modal } from 'react-bootstrap';
-
+import {useDispatch , useSelector} from 'react-redux'
+import { addToCart } from '../actions/cartActions';
 
 function AgriProduct({agriProduct}) {
     const [quantity , setquantity] = useState(1)
@@ -11,8 +12,15 @@ function AgriProduct({agriProduct}) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+
+    const dispatch = useDispatch();
+
+    function addtocart(){
+        dispatch(addToCart(agriProduct , quantity , varient ))
+    }
+
     return (
-        <div style={{margin:'70px'}} className="shadow-lg p-3 mb-5 bg-white rounded">
+        <div  className="shadow-lg p-3 mb-5 bg-white rounded">
             <div onClick={handleShow}>
                 <h1>{agriProduct.name}</h1>
                 <img src={agriProduct.image} className="img-fluid" style={{height:'200px' , width:'200px'}} alt=""/>
@@ -45,7 +53,7 @@ function AgriProduct({agriProduct}) {
                     <h1 className='mt-1'>Price : Rs {agriProduct.prices[0][varient]*quantity}/-</h1>
                 </div>
                 <div className='m-1 w-100'>
-                    <button className='btn' >ADD TO CART</button>
+                    <button className='btn' onClick={addtocart}>ADD TO CART</button>
                 </div>
 
             </div>

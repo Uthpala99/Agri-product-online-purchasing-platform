@@ -40,3 +40,19 @@ select{
   box-shadow: none !important;
   border-color: black !important;
 }
+.fa-plus{
+  color: green !important;
+  margin: 5px;
+}
+
+.fa-minus {
+  color: red !important;
+  margin: 5px;
+}
+.fa-trash{
+  color: red !important;
+}
+input{
+  margin-top: 10px !important;
+  box-shadow: none !important;
+}
