@@ -9,6 +9,8 @@ export default function RegisterScreen() {
     const [phone, setphone] = useState('')
     const [password, setpassword] = useState('')
     const [cpassword, setcpassword] = useState('')
+    const registerstate = useState(state=> state.registerUserReducer)
+    const {error , loading , success} = registerstate
 
     const dispatch = useDispatch()
 
@@ -30,7 +32,9 @@ export default function RegisterScreen() {
     return (
         <div>
             <div className='row justify-content-center mt-5'>
-                <div className='col-md-5 mt-5 text-left'>
+                <div className='col-md-5 mt-5 text-left shadow-lg p-3 mb-5 bg-white rounded'>
+
+                    {loading}
                     <h2 className='text-center m-2' style={{ fontSize: '35px' }}>Register</h2>
                     <div>
                         <input 
@@ -73,7 +77,8 @@ export default function RegisterScreen() {
                             onChange={(e)=> {setcpassword(e.target.value)}}
                             required 
                         />
-                        <button onClick={register} className='btn mt-3' >REGISTER</button>
+                        <button onClick={register} className='btn mt-3 mb-3' >REGISTER</button><br/>
+                        <a style={{color:'black'}} className="m-2" href='/login'>Click Here To Login</a>
                     </div>
                 </div>
 

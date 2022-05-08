@@ -1,5 +1,5 @@
 import './App.css';
-import bootstrap from '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import bootstrap from '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar';
 import HomeScreen from './screens/HomeScreen';
 import {BrowserRouter , Route , Link , Switch} from 'react-router-dom'
