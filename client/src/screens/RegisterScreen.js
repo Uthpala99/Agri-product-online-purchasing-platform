@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch , useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { registerUser } from '../actions/userActions'
+import Loading from './Loading'
+
 
 export default function RegisterScreen() {
 
@@ -9,19 +11,19 @@ export default function RegisterScreen() {
     const [phone, setphone] = useState('')
     const [password, setpassword] = useState('')
     const [cpassword, setcpassword] = useState('')
-    const registerstate = useState(state=> state.registerUserReducer)
-    const {error , loading , success} = registerstate
+    const registerstate = useSelector(state => state.registerUserReducer)
+    const { loading, error, success } = registerstate
 
     const dispatch = useDispatch()
 
-    function register(){
-        if(cpassword!=password){
+    function register() {
+        if (cpassword != password) {
             alert("Password not matched")
-        }else {
+        } else {
             const user = {
-                name , 
-                email ,
-                phone ,
+                name,
+                email,
+                phone,
                 password
             }
             console.log(user);
@@ -33,52 +35,59 @@ export default function RegisterScreen() {
         <div>
             <div className='row justify-content-center mt-5'>
                 <div className='col-md-5 mt-5 text-left shadow-lg p-3 mb-5 bg-white rounded'>
+                    <br/>
+                    {loading && (<Loading />)}
+                    {success ? (<div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Registered Successfully </strong>
+                        </div>) :''}
+                    {error ? (<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Email already registered </strong>
+                        </div>):''}
 
-                    {loading}
                     <h2 className='text-center m-2' style={{ fontSize: '35px' }}>Register</h2>
                     <div>
-                        <input 
-                            type='text' 
-                            placeholder='Name' 
-                            className='form-control' 
+                        <input
+                            type='text'
+                            placeholder='Name'
+                            className='form-control'
                             value={name}
-                            onChange={(e)=> {setname(e.target.value)}}
+                            onChange={(e) => { setname(e.target.value) }}
                             required
                         />
-                        <input 
-                            type='email' 
-                            placeholder='Email' 
+                        <input
+                            type='email'
+                            placeholder='Email'
                             className='form-control'
                             value={email}
-                            onChange={(e)=> {setemail(e.target.value)}} 
+                            onChange={(e) => { setemail(e.target.value) }}
                             required
                         />
-                        <input 
-                            type='phone' 
-                            placeholder='Phone Number' 
+                        <input
+                            type='phone'
+                            placeholder='Phone Number'
                             className='form-control'
                             value={phone}
-                            onChange={(e)=> {setphone(e.target.value)}} 
+                            onChange={(e) => { setphone(e.target.value) }}
                             required
                         />
-                        <input 
-                            type='password' 
-                            placeholder='Password' 
+                        <input
+                            type='password'
+                            placeholder='Password'
                             className='form-control'
                             value={password}
-                            onChange={(e)=> {setpassword(e.target.value)}} 
+                            onChange={(e) => { setpassword(e.target.value) }}
                             required
                         />
-                        <input 
-                            type='password' 
-                            placeholder='Confirm Password' 
-                            className='form-control' 
+                        <input
+                            type='password'
+                            placeholder='Confirm Password'
+                            className='form-control'
                             value={cpassword}
-                            onChange={(e)=> {setcpassword(e.target.value)}}
-                            required 
+                            onChange={(e) => { setcpassword(e.target.value) }}
+                            required
                         />
-                        <button onClick={register} className='btn mt-3 mb-3' >REGISTER</button><br/>
-                        <a style={{color:'black'}} className="m-2" href='/login'>Click Here To Login</a>
+                        <button onClick={register} className='btn mt-3 mb-3' >REGISTER</button><br />
+                        <a style={{ color: 'black' }} className="m-2" href='/login'>Click Here To Login</a>
                     </div>
                 </div>
 
