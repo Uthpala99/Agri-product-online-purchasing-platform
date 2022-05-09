@@ -17,7 +17,9 @@ app.listen(port, () => `Server running on port  `);
 
 const agriProductsRoute = require ('./routes/agriProductsRoute.js')
 const userRoute = require ('./routes/userRoute.js')
+const ordersRoute = require('./routes/ordersRoute.js')
 
 app.use('/api/agriproducts/' , agriProductsRoute);
 app.use('/api/users/' , userRoute);
+app.use('/api/orders/' , ordersRoute)
 

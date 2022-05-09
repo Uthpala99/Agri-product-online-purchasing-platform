@@ -5,12 +5,14 @@ import { getAllAgriProductsReducer } from './reducers/agriProductReducers'
 import {composeWithDevTools } from 'redux-devtools-extension'
 import { cartReducer } from './reducers/cartReducers'
 import { loginUserReducer, registerUserReducer } from './reducers/userReducers'
+import { placeOrderReducer } from './reducers/orderReducers'
 
 const finalReducers = combineReducers({
     getAllAgriProductsReducer : getAllAgriProductsReducer,
     cartReducer : cartReducer,
     registerUserReducer : registerUserReducer,
-    loginUserReducer : loginUserReducer
+    loginUserReducer : loginUserReducer,
+    placeOrderReducer : placeOrderReducer
 })
 
 const cartItems = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
