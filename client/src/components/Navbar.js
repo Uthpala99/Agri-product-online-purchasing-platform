@@ -14,7 +14,7 @@ function Navbar() {
   return (
     <div>
       <nav class="navbar navbar-expand-lg shadow-lg p-3 mb-5 bg-body rounded">
-        <a class="navbar-brand" href="/">Agri product online purchasing platform</a>
+        <a class="navbar-brand" href="/">AGRI PRODUCT ONLINE PURCHASING PLATFORM</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,7 +33,7 @@ function Navbar() {
                   {currentUser.name}
                 </a>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a className="dropdown-item" href="#">Orders</a>
+                  <a className="dropdown-item" href="/orders">Orders</a>
                   <a className="dropdown-item" href="#" onClick={()=>{dispatch(logoutUser())}}>Logout</a>
                 </div>
               </div>) : (
