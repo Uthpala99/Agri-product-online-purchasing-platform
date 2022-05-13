@@ -24,8 +24,8 @@ export default function Filter() {
             <div className='col-md-3 w-100'>
                 <select name="" id="" className='form-control w-100 mt-2' value={category} onChange={(e)=>setcategory(e.target.value)}>
                     <option value="all">All</option>
-                    <option value="veg">Veg</option>
-                    <option value="nonveg">Non-Veg</option>
+                    <option value="dairy machinery">DAIRY MACHINERY</option>
+                    <option value="light machinery">LIGHT MACHINERY</option>
                 </select>
             </div>
             <div className='col-md-3 w-100'>

@@ -78,14 +78,14 @@ export default function OrderScreen() {
 
                 </div>
 
-                <div className="text-left w-100 m-1 p-1 ">
+                {/* <div className="text-left w-100 m-1 p-1 ">
 
                   <Link to={`/taxy/${order._id}`} className>
                     <button className="btn btn-warning">
                       Click here if you want Taxy Service
                     </button>
                   </Link>
-                </div>
+                </div> */}
 
               </div>
             </div>

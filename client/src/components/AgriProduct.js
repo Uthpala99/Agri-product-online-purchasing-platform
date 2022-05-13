@@ -35,14 +35,15 @@ function AgriProduct({ agriProduct }) {
                         })}
                     </select>
                 </div>
+                <div className='m-1 w-100'>
+                    <p className='mt-1'>Price <br/><h1 className='mt-3'>Rs {agriProduct.prices * quantity}/-</h1></p>
+                </div>
 
             </div>
 
             <div className="flex-container" >
-                <div className='m-1 w-100'>
-                    <h1 className='mt-1'>Price : Rs {agriProduct.prices * quantity}/-</h1>
-                </div>
-                <div className='m-1 w-100'>
+                
+                <div className='m-2 w-100'>
                     <button className='btn' onClick={addtocart}>ADD TO CART</button>
                 </div>
 
