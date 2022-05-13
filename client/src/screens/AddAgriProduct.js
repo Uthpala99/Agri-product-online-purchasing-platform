@@ -6,7 +6,7 @@ import Loading from './Loading'
 export default function AddAgriProduct() {
 
     const [name, setname] = useState('')
-    const [prices, setprices] = useState('')
+    const [prices, setprices] = useState()
     const [category, setcategory] = useState('')
     const [image, setimage] = useState('')
     const [description, setdescription] = useState('')

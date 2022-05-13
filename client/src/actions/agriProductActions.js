@@ -12,6 +12,19 @@ export const getAllAgriProducts = () =>  async dispatch =>{
     }
 } 
 
+
+export const getAgriProductById = (agriproductid) =>  async dispatch =>{
+    dispatch({type:'GET_AGRIPRODUCTBYID_REQUEST'})
+
+    try {
+        const response = await axios.post('http://localhost:8000/api/agriproducts/getagriproductbyid' , {agriproductid})
+        console.log(response)
+        dispatch({type:'GET_AGRIPRODUCTBYID_SUCCESS' , payload : response.data})
+    } catch (error) {
+        dispatch({type:'GET_AGRIPRODUCTBYID_FAILED' , payload : error })
+    }
+}
+
 export const filterAgriProducts = (searchkey , category) =>  async dispatch =>{
     var filteredAgriProducts ;
     dispatch({type:'GET_AGRIPRODUCTS_REQUEST'})
@@ -37,5 +50,31 @@ export const addAgriProduct=(agriProduct)=> async dispatch=>{
         dispatch({type:'ADD_AGRIPRODUCT_SUCCESS'})
     } catch (error) {
         dispatch({type:'ADD_AGRIPRODUCT_FAILED' , payload : error})
+    }
+}
+
+
+export const editAgriProduct=(editedagriProduct)=> async dispatch=>{
+    dispatch({type:'EDIT_AGRIPRODUCT_REQUEST'})
+    try {
+        const response = await axios.post('http://localhost:8000/api/agriproducts/editagriproduct' , {editedagriProduct})
+        console.log(response);
+        dispatch({type:'EDIT_AGRIPRODUCT_SUCCESS'})
+        window.location.href="/admin/agriproductslist"
+    } catch (error) {
+        dispatch({type:'EDIT_AGRIPRODUCT_FAILED' , payload : error})
+    }
+}
+
+export const deleteAgriProduct =(agriproductid)=>async dispatch=>{
+    try {
+        const response = await axios.post('http://localhost:8000/api/agriproducts/deleteagriproduct' , {agriproductid})
+        alert('Agri Product Deleted Successfully')
+        console.log(response);
+        window.location.reload();
+    } catch (error) {
+        alert('Something Went Wrong ')
+        console.log(error);
+        
     }
 }

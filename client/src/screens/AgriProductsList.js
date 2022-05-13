@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { getAllAgriProducts } from '../actions/agriProductActions'
+import { getAllAgriProducts , deleteAgriProduct } from '../actions/agriProductActions'
 import Loading from './Loading'
 
 export default function AgriProductsList() {
@@ -39,7 +39,7 @@ export default function AgriProductsList() {
                     <td>{agriProducts.prices}</td>
                     <td>{agriProducts.category}</td>
                     <td>
-                        <i className='fa fa-trash m-2'></i>
+                        <i className='fa fa-trash m-2' onClick={() =>{dispatch(deleteAgriProduct(agriProducts._id))}}></i>
                         <Link to={`/admin/editagriproduct/${agriProducts._id}`}><i className='fa fa-edit m-2'></i></Link>
                     </td>
                 </tr>
