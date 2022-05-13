@@ -30,22 +30,15 @@ router.post('/login', async (req, res) => {
             phone: user[0].phone,
             _id: user[0]._id,
             isDelivaryAdmin: user[0].isDelivaryAdmin,
-            
-
-
         }
         res.send(currentUser)
-      
     }
     else{
         return res.status(400).json({message: "user login failed"})
-
     }
  }catch(e){
         return res.status(400).json({message: "something went wrong"});
     }
-
-
 })
 
 
