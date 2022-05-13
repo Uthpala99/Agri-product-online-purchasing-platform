@@ -1,14 +1,13 @@
-export const addToCart=(agriProduct , quantity , varient)=>(dispatch , getState) =>{
+export const addToCart=(agriProduct , quantity )=>(dispatch , getState) =>{
 
 
     var cartItem = {
         name : agriProduct.name,
         _id : agriProduct._id,
         image: agriProduct.image,
-        varient : varient,
         quantity: Number(quantity),
         prices: agriProduct.prices,
-        price : agriProduct.prices[0][varient]*quantity
+        price : agriProduct.prices*quantity
     }
     
     if(cartItem.quantity>10)

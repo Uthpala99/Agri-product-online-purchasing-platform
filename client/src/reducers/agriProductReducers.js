@@ -17,3 +17,23 @@ export const getAllAgriProductsReducer = (state={agriProducts:[]} , action) =>{
         default : return state
     }
 }
+
+export const addAgriProductReducer = (state={} , action) =>{
+
+    switch(action.type)
+    {
+        case 'ADD_AGRIPRODUCT_REQUEST' : return {
+            loading : true,
+            ...state
+        }
+        case 'ADD_AGRIPRODUCT_SUCCESS' : return{
+            loading : false,
+            success : true,
+        }
+        case 'ADD_AGRIPRODUCT_FAILED' : return {
+            error : action.payload,
+            loading : false
+        }
+        default : return state
+    }
+}

@@ -34,7 +34,7 @@ router.post("/placeorder" , async(req , res) =>{
                     country : token.card.address_country,
                     pincode : token.card.address_zip
                 },
-                trasactionId : payment.source.id,
+                transactionId : payment.source.id,
             })
 
             newOrder.save()

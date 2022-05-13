@@ -22,12 +22,12 @@ function CartScreen() {
                     return <div className='flex-container'>
 
                     <div className='text-left m-1 w-100'>
-                        <h1>{item.name}[{item.varient}]</h1>
-                        <h1>Price : {item.quantity} * {item.prices[0][item.varient]} = {item.price}</h1>
+                        <h1>{item.name}</h1>
+                        <h1>Price : {item.quantity} * {item.prices} = {item.price}</h1>
                         <h1 style={{display :'inline'}}>Quantity : </h1>
-                        <i className="fa fa-plus" aria-hidden="true" onClick={()=>{dispatch(addToCart(item ,item.quantity+1 , item.varient ))}}></i>
+                        <i className="fa fa-plus" aria-hidden="true" onClick={()=>{dispatch(addToCart(item ,item.quantity+1 ))}}></i>
                         <b>{item.quantity}</b>
-                        <i className="fa fa-minus" aria-hidden="true" onClick={()=>{dispatch(addToCart(item ,item.quantity-1, item.varient ))}}></i>
+                        <i className="fa fa-minus" aria-hidden="true" onClick={()=>{dispatch(addToCart(item ,item.quantity-1))}}></i>
                         <hr></hr>
 
                     </div >

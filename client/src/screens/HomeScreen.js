@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllAgriProducts } from '../actions/agriProductActions';
 import AgriProduct from '../components/AgriProduct';
+import Filter from '../components/Filter';
 import Error from './Error';
 import Loading from './Loading';
 
@@ -20,7 +21,9 @@ function HomeScreen() {
 
     return (
         <div>
+            <Filter/>
             <div className='row justify-content-center'>
+                
 
                 {loading ? (<Loading/>) : error ? (<Error error='Something went wrong'/>) : (
                     agriProducts.map(agriProduct => {
