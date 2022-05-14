@@ -48,6 +48,7 @@ export const addAgriProduct=(agriProduct)=> async dispatch=>{
         const response = await axios.post('http://localhost:8000/api/agriproducts/addagriproduct' , {agriProduct})
         console.log(response);
         dispatch({type:'ADD_AGRIPRODUCT_SUCCESS'})
+        window.location.href="/admin/agriproductslist"
     } catch (error) {
         dispatch({type:'ADD_AGRIPRODUCT_FAILED' , payload : error})
     }
