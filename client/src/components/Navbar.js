@@ -35,8 +35,10 @@ function Navbar() {
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <a className="dropdown-item" href="/orders">Orders</a>
                   <a className="dropdown-item" href="#" onClick={()=>{dispatch(logoutUser())}}>Logout</a>
+                  {currentUser.isAdmin ? ( <a className="dropdown-item" href="/admin">Admin Dashboard</a>):""}
                 </div>
-              </div>) : (
+                
+              </div> ) : (
               <li class="nav-item active">
                 <a class="nav-link" href="/login">Login</a>
               </li>)}

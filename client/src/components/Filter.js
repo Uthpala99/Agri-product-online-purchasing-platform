@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, {useState} from 'react';
+import { useDispatch } from 'react-redux';
 import { filterAgriProducts } from '../actions/agriProductActions';
 
 export default function Filter() {
@@ -18,7 +18,7 @@ export default function Filter() {
                     onChange={(e)=>setsearchkey(e.target.value)}
                     type="text" 
                     className='form-control' 
-                    placeholder='search agri products'
+                    placeholder='Search Agri Products'
                     />
             </div>
             <div className='col-md-3 w-100'>
