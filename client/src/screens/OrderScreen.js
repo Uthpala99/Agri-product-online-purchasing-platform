@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getUserOrders } from '../actions/orderActions'
 import Loading from './Loading'
 import Error from './Error'
+import axios from 'axios'
 import { Link } from "react-router-dom";
 
 export default function OrderScreen() {
@@ -20,6 +21,17 @@ export default function OrderScreen() {
 
 
   }, [])
+
+
+  function deleteOrder(orderid) {
+    axios.post('http://localhost:8000/api/orders/deleteorder' , {orderid})
+      .then(response => { 
+        alert("Order Cancel Successfully");
+        window.location.reload(false);
+        console.log(response.data)
+      });
+    }
+
   return (
 
     <div className="wrapper" >
@@ -42,7 +54,7 @@ export default function OrderScreen() {
                   {order.orderItems.map(item => {
                     return <div >
                       <p>{item.name} * {item.quantity} = {item.price}</p>
-                      <img src={item.image} className="img-fluid" style={{height:'100px' , width:'100px'}} alt=""/>
+                      <img src={item.image} className="img-fluid mb-3" style={{height:'100px' , width:'100px'}} alt="" />
                     </div>
                   })}
                 </div>
@@ -69,24 +81,16 @@ export default function OrderScreen() {
                   <p>Order ID : {order._id}</p>
 
 
-                  {/* <button className="btn btn-danger"
-                    onClick={()=>{dispatch(deleteOrder(order._id))}} >
+                  <button className="btn btn-danger"
+                    onClick={() => {deleteOrder(order._id) }} >
                       <i className="fa fa-trash" style={{ color: "white" }}></i>
-                      &nbsp; Cancel Reservation
-                    </button> */}
+                      &nbsp; Cancel Order
+                    </button>
 
 
                 </div>
 
-                {/* <div className="text-left w-100 m-1 p-1 ">
-
-                  <Link to={`/taxy/${order._id}`} className>
-                    <button className="btn btn-warning">
-                      Click here if you want Taxy Service
-                    </button>
-                  </Link>
-                </div> */}
-
+               
               </div>
             </div>
 

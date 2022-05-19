@@ -79,4 +79,15 @@ router.post("/deliverorder" , async (req , res ) =>{
     }
 })
 
+router.post("/deleteorder", async (req, res) => {
+    const orderid = req.body.orderid
+
+    try {
+        await Order.findOneAndDelete({ _id: orderid })
+        res.send('Order Deleted Successfully')
+    } catch (error) {
+        return res.status(400).json({ message: 'Something went wrong' + error })
+    }
+})
+
 module.exports = router
