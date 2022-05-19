@@ -24,7 +24,7 @@ export default function OrderScreen() {
 
 
   function deleteOrder(orderid) {
-    axios.post('http://localhost:8000/api/orders/deleteorder' , {orderid})
+    axios.post('http://localhost:8001/api/orders/deleteorder' , {orderid})
       .then(response => { 
         alert("Order Cancel Successfully");
         window.location.reload(false);

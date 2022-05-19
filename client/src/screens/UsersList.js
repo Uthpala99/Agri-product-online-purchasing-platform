@@ -17,7 +17,7 @@ export default function UsersList() {
 
   useEffect(() => {
       function getAllUsers(){
-        axios.get('http://localhost:8000/api/users/getallusers').then((res) =>{
+        axios.get('http://localhost:8002/api/users/getallusers').then((res) =>{
             console.log(res);
             setUser(res.data);
         }).catch((err)=>{
@@ -29,7 +29,7 @@ export default function UsersList() {
   console.log(user)
 
   function deleteUser(userid) {
-    axios.post('http://localhost:8000/api/users/deleteuser' , {userid})
+    axios.post('http://localhost:8002/api/users/deleteuser' , {userid})
       .then(response => { 
         alert("User Deleted Successfully");
         window.location.reload(false);
