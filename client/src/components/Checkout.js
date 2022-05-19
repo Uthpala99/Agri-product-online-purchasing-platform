@@ -45,12 +45,6 @@ export default function Checkout({ subtotal }) {
       >
         <button className="btn">Pay Now</button>
       </StripeCheckout>
-
-      <di>
-        <form onSubmit={sendEmail}>
-          <input type="submit" value="Send" />
-        </form>
-      </di>
     </div>
   );
 }
