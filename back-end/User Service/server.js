@@ -4,7 +4,7 @@ const express = require("express");
 const db = require('./db')
 const app = express();
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8002;
 
 app.use(cors());
 app.use(express.json());
@@ -15,11 +15,9 @@ app.get('/' , (req , res) =>{
 
 app.listen(port, () => `Server running on port  `);
 
-const agriProductsRoute = require ('./routes/agriProductsRoute.js')
-const userRoute = require ('./routes/userRoute.js')
-const ordersRoute = require('./routes/ordersRoute.js')
 
-app.use('/api/agriproducts/' , agriProductsRoute);
+const userRoute = require ('./routes/userRoute.js')
+
 app.use('/api/users/' , userRoute);
-app.use('/api/orders/' , ordersRoute)
+
 
