@@ -22,7 +22,7 @@ function Navbar() {
           <ul class="navbar-nav ml-auto">
 
             {currentUser ? (
-              <div className="dropdown mt-2">
+              <div className="dropdown mt-2 mr-4">
                 <a  style={{}} className="dropdown-toggle" 
                   type="button" 
                   id="dropdownMenuButton" 
@@ -39,12 +39,12 @@ function Navbar() {
                 </div>
                 
               </div> ) : (
-              <li class="nav-item active">
-                <a class="nav-link" href="/login">Login</a>
+              <li className="nav-item active">
+                <a class="nav-link mr-3" href="/login">Login</a>
               </li>)}
 
-            <li class="nav-item">
-              <a class="nav-link" href="/cart">
+            <li className="nav-item mr-3">
+              <a className="nav-link" href="/cart">
                 Cart {cartstate.cartItems.length}</a>
             </li>
 

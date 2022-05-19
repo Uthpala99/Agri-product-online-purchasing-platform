@@ -41,5 +41,27 @@ router.post('/login', async (req, res) => {
     }
 })
 
+router.get("/getallusers", (req, res) => {
+    User.find({}, (err, docs) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.send(docs)
+        }
+    })
+})
+
+router.post("/deleteuser", async (req, res) => {
+    const userid = req.body.userid
+
+    try {
+        await User.findOneAndDelete({ _id: userid })
+        res.send('User Deleted Successfully')
+    } catch (error) {
+        return res.status(400).json({ message: 'Something went wrong' + error })
+    }
+})
+
 
 module.exports = router
