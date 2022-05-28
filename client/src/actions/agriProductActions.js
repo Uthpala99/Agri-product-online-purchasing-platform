@@ -19,7 +19,7 @@ export const getAgriProductById = (agriproductid) => async (dispatch) => {
 
   try {
     const response = await axios.post(
-      "http://localhost:8000/api/agriproducts/getagriproductbyid",
+      "http://localhost:8290/agriProduct/getOneProduct",
       { agriproductid }
     );
     console.log(response);
