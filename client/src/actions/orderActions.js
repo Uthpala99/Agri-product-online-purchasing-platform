@@ -5,7 +5,7 @@ export const placeOrder = (token, subtotal) => async (dispatch, getState) => {
   const cartItems = getState().cartReducer.cartItems;
   try {
     const response = await axios.post(
-      "http://localhost:8290/orders/placeOrder",
+      "http://localhost:8000/api/orders/placeorder",
       { token, subtotal, currentUser, cartItems }
     );
     console.log(response);
@@ -22,7 +22,7 @@ export const getUserOrders = () => async (dispatch, getState) => {
 
   try {
     const response = await axios.post(
-      "http://localhost:8001/api/orders/getuserorders",
+      "http://localhost:8000/api/orders/getuserorders",
       { userid: currentUser._id }
     );
     console.log(response);
@@ -38,7 +38,7 @@ export const getAllOrders = () => async (dispatch, getState) => {
 
   try {
     const response = await axios.get(
-      "http://localhost:8290/orders/getAllOrders",
+      "http://localhost:8000/api/orders/getallorders",
       { userid: currentUser._id }
     );
     console.log(response);
@@ -51,12 +51,12 @@ export const getAllOrders = () => async (dispatch, getState) => {
 export const deliverOrder = (orderid) => async (dispatch) => {
   try {
     const response = await axios.post(
-      "http://localhost:8290/orders/deliverOrder",
+      "http://localhost:8000/api/orders/deliverorder",
       { orderid }
     );
     console.log(response);
     alert("Order Delivered ");
-    const orders = await axios.get("http://localhost:8290/orders/getAllOrders");
+    const orders = await axios.get("http://localhost:8000/api/orders/getallorders");
     window.location.reload();
     dispatch({ type: "GET ALL_ORDERS_SUCCESS", payload: orders.data });
   } catch (error) {

@@ -5,7 +5,7 @@ export const getAllAgriProducts = () => async (dispatch) => {
 
   try {
     const response = await axios.get(
-      "http://localhost:8000/api/agriproducts/getallagriproducts"
+      "http://localhost:8000/api/agriproduct/getallagriproducts"
     );
     console.log(response);
     dispatch({ type: "GET_AGRIPRODUCTS_SUCCESS", payload: response.data });
@@ -19,7 +19,7 @@ export const getAgriProductById = (agriproductid) => async (dispatch) => {
 
   try {
     const response = await axios.post(
-      "http://localhost:8290/agriProduct/getOneProduct",
+      "http://localhost:8000/api/agriProduct/getagriproductbyid",
       { agriproductid }
     );
     console.log(response);
@@ -35,7 +35,7 @@ export const filterAgriProducts = (searchkey, category) => async (dispatch) => {
 
   try {
     const response = await axios.get(
-      "http://localhost:8000/api/agriproducts/getallagriproducts"
+      "http://localhost:8000/api/agriproduct/getallagriproducts"
     );
     filteredAgriProducts = response.data.filter((agriProduct) =>
       agriProduct.name.toLowerCase().includes(searchkey)
@@ -59,7 +59,7 @@ export const addAgriProduct = (agriProduct) => async (dispatch) => {
   dispatch({ type: "ADD_AGRIPRODUCT_REQUEST" });
   try {
     const response = await axios.post(
-      "http://localhost:8290/agriProduct/addProduct",
+      "http://localhost:8000/api/agriProduct/addagriproduct",
       { agriProduct }
     );
     console.log(response);
@@ -74,7 +74,7 @@ export const editAgriProduct = (editedagriProduct) => async (dispatch) => {
   dispatch({ type: "EDIT_AGRIPRODUCT_REQUEST" });
   try {
     const response = await axios.post(
-      "http://localhost:8290/agriProduct/editProduct",
+      "http://localhost:8000/api/agriProduct/editagriproduct",
       { editedagriProduct }
     );
     console.log(response);
@@ -88,7 +88,7 @@ export const editAgriProduct = (editedagriProduct) => async (dispatch) => {
 export const deleteAgriProduct = (agriproductid) => async (dispatch) => {
   try {
     const response = await axios.post(
-      "http://localhost:8290/agriProduct/deleteProduct",
+      "http://localhost:8000/api/agriProduct/deleteagriproduct",
       { agriproductid }
     );
     alert("Agri Product Deleted Successfully");

@@ -10,6 +10,7 @@ router.post("/register" , (req , res) =>{
         newUser.save()
         res.send('User Registered Successfully !')
     }catch (error) {
+        console.log(error);
         return res.status(400).json({message: error });
     }
 })

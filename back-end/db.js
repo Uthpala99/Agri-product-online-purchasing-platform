@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-var  mongoURL = 'mongodb+srv://dbUser:dbUserPassword@afproject.4ertf.mongodb.net/DS_Assignment' ;
+var  mongoURL = 'mongodb+srv://dbUser:dbUserPassword@cluster0.kg6ct.mongodb.net/DS_Assignment' ;
 
 mongoose.connect(mongoURL,{
     useNewUrlParser:true,

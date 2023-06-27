@@ -16,6 +16,7 @@ export default function RegisterScreen() {
 
     const dispatch = useDispatch()
 
+    console.log(error)
     function register() {
         if (cpassword != password) {
             alert("Password not matched")

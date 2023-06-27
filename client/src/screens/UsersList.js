@@ -9,16 +9,10 @@ export default function UsersList() {
   const [user, setUser] = useState([]);
   const dispatch = useDispatch();
 
-  // const usersstate = useSelector(state => state.getAllUsersReducer)
-
-  // const { users , error, loading } = usersstate
-  //const userstate = useSelector((state) => state.loginUserReducer)
-  //const {currentUser  , loading , error} = userstate
-
   useEffect(() => {
     function getAllUsers() {
       axios
-        .get("http://localhost:8290/users/getAllUsers")
+        .get("http://localhost:8000/api/users/getallusers")
         .then((res) => {
           console.log(res);
           setUser(res.data);
@@ -33,7 +27,7 @@ export default function UsersList() {
 
   function deleteUser(userid) {
     axios
-      .post("http://localhost:8290/users/deleteUser", { userid })
+      .post("http://localhost:8000/api/users/deleteuser", { userid })
       .then((response) => {
         alert("User Deleted Successfully");
         window.location.reload(false);

@@ -1,11 +1,9 @@
-
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserOrders } from '../actions/orderActions'
 import Loading from './Loading'
 import Error from './Error'
 import axios from 'axios'
-import { Link } from "react-router-dom";
 
 export default function OrderScreen() {
 
@@ -24,7 +22,7 @@ export default function OrderScreen() {
 
 
   function deleteOrder(orderid) {
-    axios.post('http://localhost:8001/api/orders/deleteorder' , {orderid})
+    axios.post('http://localhost:8000/api/orders/deleteorder' , {orderid})
       .then(response => { 
         alert("Order Cancel Successfully");
         window.location.reload(false);

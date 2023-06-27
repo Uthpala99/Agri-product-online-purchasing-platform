@@ -5,7 +5,7 @@ export const registerUser = (user) => async (dispatch) => {
 
   try {
     const response = await axios.post(
-      "http://localhost:8290/users/register",
+      "http://localhost:8000/api/users/register",
       user
     );
     console.log(response);
@@ -20,7 +20,7 @@ export const loginUser = (user) => async (dispatch) => {
 
   try {
     const response = await axios.post(
-      "http://localhost:8290/users/login",
+      "http://localhost:8000/api/users/login",
       user
     );
     console.log(response);
