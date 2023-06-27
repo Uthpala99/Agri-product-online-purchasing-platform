@@ -16,8 +16,6 @@ export default function OrderScreen() {
 
   useEffect(() => {
     dispatch(getUserOrders())
-
-
   }, [])
 
 

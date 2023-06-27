@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { getAllUsers, deleteUser } from "../actions/userActions.js";
-import Loading from "./Loading";
 import axios from "axios";
 
 export default function UsersList() {
   const [user, setUser] = useState([]);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     function getAllUsers() {
@@ -38,10 +33,6 @@ export default function UsersList() {
   return (
     <div>
       <h2 style={{ fontSize: "35px" }}>UsersList</h2>
-      {/* {loading && (<Loading/>)}
-                    {error ? (<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong>Something Went wrong ! </strong>
-                        </div>):''} */}
       <table className="table tavle-bordered">
         <thead className="thead-dark">
           <tr>
@@ -58,7 +49,6 @@ export default function UsersList() {
               <td>{user.name}</td>
               <td>{user.email}</td>
               <td>{user.phone}</td>
-              {/* <td>{user.isDelivaryAdmin ? (<h1>Delivered</h1>):(<button className='btn' onClick={() => dispatch(deliverOrder(order._id))}>Deliver</button>)}</td> */}
               <td>{user.isAdmin ? <h1>Admin</h1> : <h1>Customer</h1>}</td>
               <td>
                 <i
@@ -67,7 +57,6 @@ export default function UsersList() {
                     deleteUser(user._id);
                   }}
                 ></i>
-                {/* <Link to={`/admin/editagriproduct/${agriProducts._id}`}><i className='fa fa-edit m-2'></i></Link> */}
               </td>
             </tr>
           );

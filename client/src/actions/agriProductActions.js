@@ -40,9 +40,9 @@ export const filterAgriProducts = (searchkey, category) => async (dispatch) => {
     filteredAgriProducts = response.data.filter((agriProduct) =>
       agriProduct.name.toLowerCase().includes(searchkey)
     );
-    if (category != "all") {
+    if (category !== "all") {
       filteredAgriProducts = response.data.filter(
-        (agriProduct) => agriProduct.category.toLowerCase() == category
+        (agriProduct) => agriProduct.category.toLowerCase() === category
       );
     }
     console.log(response);
